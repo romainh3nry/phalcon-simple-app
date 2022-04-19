@@ -1,0 +1,7 @@
+2022-03-27 09:04:05.114 UTC [20] LOG:  database system was shut down at 2022-03-27 09:03:26 UTC
+2022-03-27 09:04:05.139 UTC [1] LOG:  database system is ready to accept connections
+2022-03-27 11:01:11.927 UTC [24] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-03-27 11:31:10.236 UTC [1] LOG:  received smart shutdown request
+2022-03-27 11:31:10.246 UTC [1] LOG:  worker process: logical replication launcher (PID 26) exited with exit code 1
+2022-03-27 11:31:10.247 UTC [21] LOG:  shutting down
+2022-03-27 11:31:10.338 UTC [1] LOG:  database system is shut down

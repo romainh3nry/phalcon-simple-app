@@ -1,0 +1,12 @@
+2022-04-18 05:53:39.116 UTC [20] LOG:  database system was shut down at 2022-04-18 05:53:27 UTC
+2022-04-18 05:53:39.142 UTC [1] LOG:  database system is ready to accept connections
+2022-04-18 05:53:46.892 UTC [27] LOG:  execute pdo_stmt_00000001: SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM information_schema.tables WHERE table_schema = 'public' AND table_name='users'
+2022-04-18 05:53:46.893 UTC [27] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-04-18 05:53:46.975 UTC [27] LOG:  execute pdo_stmt_00000002: SELECT DISTINCT c.column_name AS Field, c.data_type AS Type, c.character_maximum_length AS Size, c.numeric_precision AS NumericSize, c.numeric_scale AS NumericScale, c.is_nullable AS Null, CASE WHEN pkc.column_name NOTNULL THEN 'PRI' ELSE '' END AS Key, CASE WHEN c.data_type LIKE '%int%' AND c.column_default LIKE '%nextval%' THEN 'auto_increment' ELSE '' END AS Extra, c.ordinal_position AS Position, c.column_default FROM information_schema.columns c LEFT JOIN ( SELECT kcu.column_name, kcu.table_name, kcu.table_schema FROM information_schema.table_constraints tc INNER JOIN information_schema.key_column_usage kcu on (kcu.constraint_name = tc.constraint_name and kcu.table_name=tc.table_name and kcu.table_schema=tc.table_schema) WHERE tc.constraint_type='PRIMARY KEY') pkc ON (c.column_name=pkc.column_name AND c.table_schema = pkc.table_schema AND c.table_name=pkc.table_name) WHERE c.table_schema='public' AND c.table_name='users' ORDER BY c.ordinal_position
+2022-04-18 05:53:46.994 UTC [27] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-04-18 05:53:47.003 UTC [27] LOG:  execute pdo_stmt_00000003: SELECT "users"."id", "users"."firstname", "users"."lastname", "users"."email", "users"."password" FROM "public"."users"
+2022-04-18 05:53:47.019 UTC [27] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-04-18 05:55:56.889 UTC [1] LOG:  received smart shutdown request
+2022-04-18 05:55:56.895 UTC [1] LOG:  worker process: logical replication launcher (PID 26) exited with exit code 1
+2022-04-18 05:55:56.896 UTC [21] LOG:  shutting down
+2022-04-18 05:55:56.957 UTC [1] LOG:  database system is shut down

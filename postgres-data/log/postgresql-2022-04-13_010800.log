@@ -1,0 +1,11 @@
+2022-04-13 01:08:00.458 UTC [20] LOG:  database system was interrupted; last known up at 2022-04-12 19:55:48 UTC
+2022-04-13 01:08:04.640 UTC [20] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-04-13 01:08:04.671 UTC [20] LOG:  redo starts at 0/166E250
+2022-04-13 01:08:04.671 UTC [20] LOG:  invalid record length at 0/166E288: wanted 24, got 0
+2022-04-13 01:08:04.671 UTC [20] LOG:  redo done at 0/166E250
+2022-04-13 01:08:04.737 UTC [1] LOG:  database system is ready to accept connections
+2022-04-13 01:26:04.535 UTC [24] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-04-13 04:31:21.321 UTC [1] LOG:  received smart shutdown request
+2022-04-13 04:31:21.332 UTC [1] LOG:  worker process: logical replication launcher (PID 26) exited with exit code 1
+2022-04-13 04:31:21.333 UTC [21] LOG:  shutting down
+2022-04-13 04:31:21.448 UTC [1] LOG:  database system is shut down

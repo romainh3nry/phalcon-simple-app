@@ -1,0 +1,6 @@
+2022-03-27 08:21:18.423 UTC [20] LOG:  database system was interrupted; last known up at 2022-03-27 07:53:05 UTC
+2022-03-27 08:21:22.657 UTC [20] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-03-27 08:21:22.685 UTC [20] LOG:  redo starts at 0/166D710
+2022-03-27 08:21:22.685 UTC [20] LOG:  invalid record length at 0/166D7F0: wanted 24, got 0
+2022-03-27 08:21:22.685 UTC [20] LOG:  redo done at 0/166D7B8
+2022-03-27 08:21:22.746 UTC [1] LOG:  database system is ready to accept connections

@@ -1,0 +1,123 @@
+2022-04-04 09:03:52.687 UTC [21] LOG:  database system was interrupted; last known up at 2022-04-04 08:47:37 UTC
+2022-04-04 09:03:56.093 UTC [21] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-04-04 09:03:56.135 UTC [21] LOG:  redo starts at 0/166DD68
+2022-04-04 09:03:56.136 UTC [21] LOG:  invalid record length at 0/166DE48: wanted 24, got 0
+2022-04-04 09:03:56.136 UTC [21] LOG:  redo done at 0/166DE10
+2022-04-04 09:03:56.237 UTC [1] LOG:  database system is ready to accept connections
+2022-04-04 09:08:39.016 UTC [28] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 09:08:39.018 UTC [28] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 09:08:39.021 UTC [28] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - Main <phalcon>'
+2022-04-04 09:08:39.041 UTC [28] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:08:39.047 UTC [28] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:08:39.051 UTC [28] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 09:08:39.153 UTC [29] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 09:08:39.155 UTC [29] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 09:08:39.160 UTC [29] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - Metadata <phalcon>'
+2022-04-04 09:08:39.163 UTC [29] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:08:39.166 UTC [29] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:08:39.169 UTC [29] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 09:08:39.360 UTC [29] LOG:  execute <unnamed>: SELECT c.oid,c.*,d.description,pg_catalog.pg_get_expr(c.relpartbound, c.oid) as partition_expr,  pg_catalog.pg_get_partkeydef(c.oid) as partition_key 
+	FROM pg_catalog.pg_class c
+	LEFT OUTER JOIN pg_catalog.pg_description d ON d.objoid=c.oid AND d.objsubid=0 AND d.classoid='pg_class'::regclass
+	WHERE c.relnamespace=$1 AND c.relkind not in ('i','I','c')
+2022-04-04 09:08:39.360 UTC [29] DETAIL:  parameters: $1 = '2200'
+2022-04-04 09:08:39.590 UTC [29] LOG:  execute <unnamed>: select c.oid,pg_catalog.pg_total_relation_size(c.oid) as total_rel_size,pg_catalog.pg_relation_size(c.oid) as rel_size
+	FROM pg_class c
+	WHERE c.relnamespace=$1
+2022-04-04 09:08:39.590 UTC [29] DETAIL:  parameters: $1 = '2200'
+2022-04-04 09:08:47.399 UTC [29] LOG:  execute <unnamed>: SELECT c.relname,a.*,pg_catalog.pg_get_expr(ad.adbin, ad.adrelid, true) as def_value,dsc.description
+	FROM pg_catalog.pg_attribute a
+	INNER JOIN pg_catalog.pg_class c ON (a.attrelid=c.oid)
+	LEFT OUTER JOIN pg_catalog.pg_attrdef ad ON (a.attrelid=ad.adrelid AND a.attnum = ad.adnum)
+	LEFT OUTER JOIN pg_catalog.pg_description dsc ON (c.oid=dsc.objoid AND a.attnum = dsc.objsubid)
+	WHERE NOT a.attisdropped AND c.oid=$1 ORDER BY a.attnum
+2022-04-04 09:08:47.399 UTC [29] DETAIL:  parameters: $1 = '24578'
+2022-04-04 09:08:54.130 UTC [28] LOG:  execute <unnamed>: SHOW TRANSACTION ISOLATION LEVEL
+2022-04-04 09:08:54.820 UTC [29] LOG:  execute <unnamed>: SELECT t.oid,t.*,pg_tablespace_location(t.oid) loc
+	FROM pg_catalog.pg_tablespace t 
+	ORDER BY t.oid
+2022-04-04 09:08:54.862 UTC [29] LOG:  execute <unnamed>: SELECT a.oid,a.* FROM pg_catalog.pg_roles a 
+	ORDER BY a.rolname
+2022-04-04 09:08:54.874 UTC [29] LOG:  execute <unnamed>: SELECT i.*,c.relnamespace FROM pg_catalog.pg_inherits i,pg_catalog.pg_class c WHERE i.inhrelid=$1 AND c.oid=i.inhparent ORDER BY i.inhseqno
+2022-04-04 09:08:54.874 UTC [29] DETAIL:  parameters: $1 = '24578'
+2022-04-04 09:08:55.447 UTC [29] LOG:  execute <unnamed>: SELECT c.oid,c.* FROM pg_catalog.pg_collation c 
+	ORDER BY c.oid
+2022-04-04 09:10:34.631 UTC [32] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 09:10:34.636 UTC [32] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 09:10:34.645 UTC [32] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script-1.sql>'
+2022-04-04 09:10:34.666 UTC [32] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:10:34.675 UTC [32] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:10:34.688 UTC [32] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 09:10:34.777 UTC [32] LOG:  execute <unnamed>: SHOW TRANSACTION ISOLATION LEVEL
+2022-04-04 09:11:07.701 UTC [34] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 09:11:07.706 UTC [34] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 09:11:07.716 UTC [34] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script-1.sql>'
+2022-04-04 09:11:07.721 UTC [34] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:11:07.724 UTC [34] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:11:07.726 UTC [34] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 09:11:07.883 UTC [34] LOG:  execute <unnamed>: SHOW TRANSACTION ISOLATION LEVEL
+2022-04-04 09:11:21.204 UTC [35] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 09:11:21.211 UTC [35] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 09:11:21.230 UTC [35] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script.sql>'
+2022-04-04 09:11:21.238 UTC [35] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:11:21.241 UTC [35] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:11:21.245 UTC [35] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 09:11:34.160 UTC [36] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 09:11:34.163 UTC [36] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 09:11:34.167 UTC [36] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script-1.sql>'
+2022-04-04 09:11:34.171 UTC [36] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:11:34.174 UTC [36] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:11:34.177 UTC [36] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 09:11:34.262 UTC [36] LOG:  execute <unnamed>: SHOW TRANSACTION ISOLATION LEVEL
+2022-04-04 09:11:39.810 UTC [37] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 09:11:39.814 UTC [37] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 09:11:39.818 UTC [37] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script-2.sql>'
+2022-04-04 09:11:39.822 UTC [37] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:11:39.825 UTC [37] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:11:39.830 UTC [37] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 09:11:56.703 UTC [37] LOG:  execute <unnamed>: select * from users
+2022-04-04 09:11:56.796 UTC [37] LOG:  execute <unnamed>: SELECT c.oid, a.attnum, a.attname, c.relname, n.nspname, a.attnotnull OR (t.typtype = 'd' AND t.typnotnull), a.attidentity != '' OR pg_catalog.pg_get_expr(d.adbin, d.adrelid) LIKE '%nextval(%' FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON (c.relnamespace = n.oid) JOIN pg_catalog.pg_attribute a ON (c.oid = a.attrelid) JOIN pg_catalog.pg_type t ON (a.atttypid = t.oid) LEFT JOIN pg_catalog.pg_attrdef d ON (d.adrelid = a.attrelid AND d.adnum = a.attnum) JOIN (SELECT 24578 AS oid , 1 AS attnum UNION ALL SELECT 24578, 2 UNION ALL SELECT 24578, 3 UNION ALL SELECT 24578, 4 UNION ALL SELECT 24578, 5) vals ON (c.oid = vals.oid AND a.attnum = vals.attnum) 
+2022-04-04 09:11:56.846 UTC [29] LOG:  execute <unnamed>: SELECT i.*,i.indkey as keys,c.relname,c.relnamespace,c.relam,c.reltablespace,tc.relname as tabrelname,dsc.description,pg_catalog.pg_get_expr(i.indpred, i.indrelid) as pred_expr,pg_catalog.pg_get_expr(i.indexprs, i.indrelid, true) as expr,pg_catalog.pg_relation_size(i.indexrelid) as index_rel_size,pg_catalog.pg_stat_get_numscans(i.indexrelid) as index_num_scans
+	FROM pg_catalog.pg_index i
+	INNER JOIN pg_catalog.pg_class c ON c.oid=i.indexrelid
+	INNER JOIN pg_catalog.pg_class tc ON tc.oid=i.indrelid
+	LEFT OUTER JOIN pg_catalog.pg_description dsc ON i.indexrelid=dsc.objoid
+	WHERE  i.indrelid=$1 ORDER BY c.relname
+2022-04-04 09:11:56.846 UTC [29] DETAIL:  parameters: $1 = '24578'
+2022-04-04 09:11:56.895 UTC [29] LOG:  execute <unnamed>: SELECT c.oid,c.*,t.relname as tabrelname,rt.relnamespace as refnamespace,d.description, null as consrc_copy
+	FROM pg_catalog.pg_constraint c
+	INNER JOIN pg_catalog.pg_class t ON t.oid=c.conrelid
+	LEFT OUTER JOIN pg_catalog.pg_class rt ON rt.oid=c.confrelid
+	LEFT OUTER JOIN pg_catalog.pg_description d ON d.objoid=c.oid AND d.objsubid=0 AND d.classoid='pg_constraint'::regclass
+	WHERE c.conrelid=$1
+	ORDER BY c.oid
+2022-04-04 09:11:56.895 UTC [29] DETAIL:  parameters: $1 = '24578'
+2022-04-04 09:11:56.917 UTC [29] LOG:  execute <unnamed>: SELECT n.nspname = ANY(current_schemas(true)), n.nspname, t.typname FROM pg_catalog.pg_type t JOIN pg_catalog.pg_namespace n ON t.typnamespace = n.oid WHERE t.oid = $1
+2022-04-04 09:11:56.917 UTC [29] DETAIL:  parameters: $1 = '22'
+2022-04-04 09:11:56.929 UTC [29] LOG:  execute <unnamed>: SELECT typinput='array_in'::regproc as is_array, typtype, typname   FROM pg_catalog.pg_type   LEFT JOIN (select ns.oid as nspoid, ns.nspname, r.r           from pg_namespace as ns           join ( select s.r, (current_schemas(false))[s.r] as nspname                    from generate_series(1, array_upper(current_schemas(false), 1)) as s(r) ) as r          using ( nspname )        ) as sp     ON sp.nspoid = typnamespace  WHERE typname = $1  ORDER BY sp.r, pg_type.oid DESC
+2022-04-04 09:11:56.929 UTC [29] DETAIL:  parameters: $1 = 'int2vector'
+2022-04-04 09:11:56.932 UTC [29] LOG:  execute <unnamed>: SELECT n.nspname = ANY(current_schemas(true)), n.nspname, t.typname FROM pg_catalog.pg_type t JOIN pg_catalog.pg_namespace n ON t.typnamespace = n.oid WHERE t.oid = $1
+2022-04-04 09:11:56.932 UTC [29] DETAIL:  parameters: $1 = '30'
+2022-04-04 09:11:56.935 UTC [29] LOG:  execute <unnamed>: SELECT typinput='array_in'::regproc as is_array, typtype, typname   FROM pg_catalog.pg_type   LEFT JOIN (select ns.oid as nspoid, ns.nspname, r.r           from pg_namespace as ns           join ( select s.r, (current_schemas(false))[s.r] as nspname                    from generate_series(1, array_upper(current_schemas(false), 1)) as s(r) ) as r          using ( nspname )        ) as sp     ON sp.nspoid = typnamespace  WHERE typname = $1  ORDER BY sp.r, pg_type.oid DESC
+2022-04-04 09:11:56.935 UTC [29] DETAIL:  parameters: $1 = 'oidvector'
+2022-04-04 09:11:56.947 UTC [29] LOG:  execute <unnamed>: SELECT am.oid,am.* FROM pg_catalog.pg_am am 
+	ORDER BY am.oid
+2022-04-04 09:11:57.319 UTC [37] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:11:57.334 UTC [37] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:26:10.901 UTC [37] LOG:  execute <unnamed>: select * from users
+2022-04-04 09:26:11.207 UTC [37] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 09:26:11.210 UTC [37] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 09:28:58.135 UTC [56] LOG:  execute pdo_stmt_00000001: SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM information_schema.tables WHERE table_schema = 'public' AND table_name='users'
+2022-04-04 09:28:58.136 UTC [56] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-04-04 09:28:58.208 UTC [56] LOG:  execute pdo_stmt_00000002: SELECT DISTINCT c.column_name AS Field, c.data_type AS Type, c.character_maximum_length AS Size, c.numeric_precision AS NumericSize, c.numeric_scale AS NumericScale, c.is_nullable AS Null, CASE WHEN pkc.column_name NOTNULL THEN 'PRI' ELSE '' END AS Key, CASE WHEN c.data_type LIKE '%int%' AND c.column_default LIKE '%nextval%' THEN 'auto_increment' ELSE '' END AS Extra, c.ordinal_position AS Position, c.column_default FROM information_schema.columns c LEFT JOIN ( SELECT kcu.column_name, kcu.table_name, kcu.table_schema FROM information_schema.table_constraints tc INNER JOIN information_schema.key_column_usage kcu on (kcu.constraint_name = tc.constraint_name and kcu.table_name=tc.table_name and kcu.table_schema=tc.table_schema) WHERE tc.constraint_type='PRIMARY KEY') pkc ON (c.column_name=pkc.column_name AND c.table_schema = pkc.table_schema AND c.table_name=pkc.table_name) WHERE c.table_schema='public' AND c.table_name='users' ORDER BY c.ordinal_position
+2022-04-04 09:28:58.217 UTC [56] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-04-04 09:28:58.221 UTC [56] LOG:  execute pdo_stmt_00000003: SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name
+2022-04-04 09:28:58.222 UTC [56] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-04-04 09:28:58.233 UTC [56] LOG:  execute pdo_stmt_00000004: SELECT DISTINCT tc.table_name as TABLE_NAME, kcu.column_name as COLUMN_NAME, tc.constraint_name as CONSTRAINT_NAME, tc.table_catalog as REFERENCED_TABLE_SCHEMA, ccu.table_name AS REFERENCED_TABLE_NAME, ccu.column_name AS REFERENCED_COLUMN_NAME FROM information_schema.table_constraints AS tc JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name WHERE constraint_type = 'FOREIGN KEY' AND tc.table_schema = 'public' AND tc.table_name='users'
+2022-04-04 09:28:58.237 UTC [56] LOG:  statement: DEALLOCATE pdo_stmt_00000004
+2022-04-04 09:28:58.247 UTC [56] LOG:  execute pdo_stmt_00000005: SELECT DISTINCT tc.table_name as TABLE_NAME, kcu.column_name as COLUMN_NAME, tc.constraint_name as CONSTRAINT_NAME, tc.table_catalog as REFERENCED_TABLE_SCHEMA, ccu.table_name AS REFERENCED_TABLE_NAME, ccu.column_name AS REFERENCED_COLUMN_NAME FROM information_schema.table_constraints AS tc JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name WHERE constraint_type = 'FOREIGN KEY' AND tc.table_schema = 'public' AND tc.table_name='users'
+2022-04-04 09:28:58.249 UTC [56] LOG:  statement: DEALLOCATE pdo_stmt_00000005
+2022-04-04 11:21:43.639 UTC [163] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-04-04 11:31:56.037 UTC [1] LOG:  received smart shutdown request
+2022-04-04 11:31:56.044 UTC [1] LOG:  worker process: logical replication launcher (PID 27) exited with exit code 1
+2022-04-04 11:32:06.071 UTC [29] FATAL:  terminating connection due to unexpected postmaster exit

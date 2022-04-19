@@ -1,0 +1,11 @@
+2022-03-27 06:49:03.944 UTC [22] LOG:  database system was interrupted; last known up at 2022-03-27 06:32:25 UTC
+2022-03-27 06:49:08.093 UTC [22] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-03-27 06:49:08.158 UTC [22] LOG:  redo starts at 0/1635FA0
+2022-03-27 06:49:08.161 UTC [22] LOG:  invalid record length at 0/16360A8: wanted 24, got 0
+2022-03-27 06:49:08.161 UTC [22] LOG:  redo done at 0/1636060
+2022-03-27 06:49:08.161 UTC [22] LOG:  last completed transaction was at log time 2022-03-27 06:32:25.917283+00
+2022-03-27 06:49:08.226 UTC [1] LOG:  database system is ready to accept connections
+2022-03-27 06:49:11.028 UTC [1] LOG:  received smart shutdown request
+2022-03-27 06:49:11.039 UTC [1] LOG:  worker process: logical replication launcher (PID 28) exited with exit code 1
+2022-03-27 06:49:11.039 UTC [23] LOG:  shutting down
+2022-03-27 06:49:11.100 UTC [1] LOG:  database system is shut down

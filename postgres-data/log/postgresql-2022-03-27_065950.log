@@ -1,0 +1,6 @@
+2022-03-27 06:59:50.126 UTC [20] LOG:  database system was shut down at 2022-03-27 06:49:11 UTC
+2022-03-27 06:59:50.153 UTC [1] LOG:  database system is ready to accept connections
+2022-03-27 07:06:13.137 UTC [1] LOG:  received smart shutdown request
+2022-03-27 07:06:13.146 UTC [1] LOG:  worker process: logical replication launcher (PID 26) exited with exit code 1
+2022-03-27 07:06:13.146 UTC [21] LOG:  shutting down
+2022-03-27 07:06:13.187 UTC [1] LOG:  database system is shut down
