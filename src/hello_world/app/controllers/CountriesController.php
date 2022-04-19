@@ -20,7 +20,11 @@ class CountriesController extends ControllerBase {
             if ($form->isValid(array_merge($this->request->getPost(), $_FILES)))
             {
                 $newCountry = new Countries();
-                $form->bind($this->request->getPost(), $newCountry);
+                # $form->bind($this->request->getPost(), $newCountry);
+                $name = $this->request->getPost('name');
+                $short = $this->request->getPost('short_name');
+                $newCountry->name = ucfirst($name);
+                $newCountry->short_name = strtoupper($short);
                 $newCountry->save();
             }
             else {

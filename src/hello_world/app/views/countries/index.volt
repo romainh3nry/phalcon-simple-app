@@ -6,12 +6,14 @@
 <table class="table mt-5">
     <tr>
         <th>Name</th>
+        <th>Short</th>
         <th>Created at</th>
         <th>Updated at</th>
     </tr>
     {% for country in countries %}
         <tr>
             <td>{{country.name}}</td>
+            <td>{{country.short_name}}</td>
             <td></td>
             <td></td>
         </tr>
