@@ -7,7 +7,8 @@ class CountriesController extends ControllerBase {
 
     public function indexAction()
     {
-
+        $countries = Countries::find();
+        $this->view->countries = $countries;
     }
 
     public function addAction(){

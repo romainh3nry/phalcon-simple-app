@@ -2,6 +2,7 @@
 
 <form action="/countries/add" method="post" class="row">
     <?= $form->get('name') ?>
+    <?= $form->get('short_name') ?>
     <?= $form->get('Submit') ?>
 </form>
 

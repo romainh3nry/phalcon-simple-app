@@ -71,4 +71,8 @@ class Countries extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+    public function afterCreate()
+    {
+        $this->created_on = date('Y-m-d H:i:s');
+    }
 }
