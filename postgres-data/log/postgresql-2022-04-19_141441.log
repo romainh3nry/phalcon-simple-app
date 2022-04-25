@@ -225,3 +225,7 @@
 2022-04-19 15:00:03.340 UTC [149] LOG:  statement: DEALLOCATE pdo_stmt_00000002
 2022-04-19 15:00:03.348 UTC [149] LOG:  execute pdo_stmt_00000003: SELECT "countries"."id", "countries"."name", "countries"."short_name", "countries"."created_at", "countries"."updated_at" FROM "public"."countries"
 2022-04-19 15:00:03.353 UTC [149] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-04-19 15:02:23.127 UTC [1] LOG:  received smart shutdown request
+2022-04-19 15:02:23.134 UTC [1] LOG:  worker process: logical replication launcher (PID 26) exited with exit code 1
+2022-04-19 15:02:23.134 UTC [21] LOG:  shutting down
+2022-04-19 15:02:23.259 UTC [1] LOG:  database system is shut down

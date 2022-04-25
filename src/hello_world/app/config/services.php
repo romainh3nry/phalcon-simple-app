@@ -12,6 +12,9 @@ use Phalcon\Crypt;
 use Phalcon\Session\Factory;
 use Phalcon\Cache\Frontend\Factory as FFactory;
 use Phalcon\Cache\Backend\Factory as BFactory;
+use Phalcon\Mvc\Model\Manager as ModelsManager;
+use Phalcon\Events\Manager as EventsManager;
+use HelloWorld\Plugins\ModelsPlugin;
 
 /**
  * Shared configuration service
@@ -168,4 +171,13 @@ $di->set('modelsCache', function() {
     $oBackCache = BFactory::load($aOptions);
 
     return $oBackCache;
+});
+
+$di->setShared('modelsManager', function() {
+    $oModele = new ModelsManager();
+    $oGestionEvenements = new EventsManager;
+    $oGestionEvenements->attach('model', new ModelsPlugin());
+    $oModele->setEventsManager($oGestionEvenements);
+
+    return $oModele;
 });

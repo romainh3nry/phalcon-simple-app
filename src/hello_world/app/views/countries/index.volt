@@ -9,13 +9,15 @@
         <th>Short</th>
         <th>Created at</th>
         <th>Updated at</th>
+        <th>Actions</th>
     </tr>
     {% for country in countries %}
         <tr>
             <td>{{country.name}}</td>
             <td>{{country.short_name}}</td>
-            <td></td>
-            <td></td>
+            <td>{{country.created_at}}</td>
+            <td>{{country.updated_at}}</td>
+            <td><a href="/countries/delete/{{country.id}}"><button>Effacer</button></a></td>
         </tr>
     {% endfor %}
 </table>

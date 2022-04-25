@@ -1,6 +1,7 @@
 <?php
 
 namespace HelloWorld\Models;
+use Phalcon\Mvc\Model\Behavior\Timestampable;
 
 
 class Countries extends \Phalcon\Mvc\Model
@@ -22,13 +23,13 @@ class Countries extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    public $created_on;
+    public $created_at;
 
     /**
      *
      * @var string
      */
-    public $updated_on;
+    public $updated_at;
 
     /**
      * Initialize method for model.
@@ -37,6 +38,17 @@ class Countries extends \Phalcon\Mvc\Model
     {
         $this->setSchema("public");
         $this->setSource("countries");
+
+        $this->addBehavior(
+            new Timestampable(
+                [
+                    'beforeCreate' => [
+                        'field' => 'created_at',
+                        'format' => 'Y-m-d H:i:s',
+                    ]
+                ]
+            )
+        );
     }
 
     /**
@@ -69,10 +81,5 @@ class Countries extends \Phalcon\Mvc\Model
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
-    }
-
-    public function afterCreate()
-    {
-        $this->created_on = date('Y-m-d H:i:s');
     }
 }
