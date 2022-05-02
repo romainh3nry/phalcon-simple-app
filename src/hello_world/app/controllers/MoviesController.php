@@ -7,8 +7,13 @@ class MoviesController extends ControllerBase
 {
     public function indexAction()
     {
-        $sPhSql = "select * from HelloWorld\Models\Movies";
-        $aResults = $this->modelsManager->executeQuery($sPhSql);
+        $sPhSql = "select * from HelloWorld\Models\Movies where title LIKE :search:";
+        $aResults = $this->modelsManager->executeQuery(
+            $sPhSql,
+            [
+                'search' => '%en%'
+            ]
+        );
         $this->view->movies = $aResults;
     }
 
