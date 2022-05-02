@@ -2,7 +2,6 @@
 
 use HelloWorld\Forms\AddCountryForm;
 use HelloWorld\Models\Countries;
-use Phalcon\Http\Response;
 
 class CountriesController extends ControllerBase {
 
@@ -27,6 +26,7 @@ class CountriesController extends ControllerBase {
                 $newCountry->name = ucfirst($name);
                 $newCountry->short_name = strtoupper($short);
                 $newCountry->save();
+                return $this->response->redirect('countries/');
             }
             else {
                 $aMessages = $form->getMessages();
@@ -41,7 +41,6 @@ class CountriesController extends ControllerBase {
     }
 
     public function DeleteAction($id) {
-        $response = new Response();
         $country = Countries::findFirst(
             "id = '{$id}'"
         );

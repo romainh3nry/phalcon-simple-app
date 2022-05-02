@@ -51,12 +51,28 @@ $router->add(
     ]
     );
 
-    $router->add(
-        '/countries/add',
-        [
-            'controller' => 'countries',
-            'action' => 'add',
-        ]
-    );
+$router->add(
+    '/countries/add',
+    [
+        'controller' => 'countries',
+        'action' => 'add',
+    ]
+);
+
+$router->add(
+    '/movies',
+    [
+        'controler' => 'movies',
+        'action' => 'index',
+    ]
+);
+
+$router-> add(
+    '/movies/add',
+    [
+        'controller' => 'movies',
+        'action' => 'add',
+    ]
+);
 
 $router->handle();
