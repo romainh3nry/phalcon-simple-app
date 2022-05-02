@@ -91,4 +91,12 @@ $router->add(
     ]
 );
 
+$router->add(
+    '/movies/delete/{id}',
+    [
+        'controller' => 'movies',
+        'action' => 'delete'
+    ]
+);
+
 $router->handle();

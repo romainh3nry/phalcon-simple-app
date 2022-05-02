@@ -3,6 +3,8 @@
 use HelloWorld\Models\Movies;
 use HelloWorld\Forms\AddMovieForm;
 use Phalcon\Db\Column;
+use Phalcon\Http\Response;
+
 
 class MoviesController extends ControllerBase 
 {
@@ -93,5 +95,20 @@ class MoviesController extends ControllerBase
         }
         $this->view->form = $form;
         $this->view->movie = $movie;
+    }
+
+    public function deleteAction($id)
+    {
+        $movie = Movies::findFirst(
+            "id = '{$id}'"
+        );
+        $this->db->delete(
+            'movies',
+            'id = ?',
+            [
+                $id
+            ] 
+        );
+        $this->response->redirect('/movies');
     }
 }
