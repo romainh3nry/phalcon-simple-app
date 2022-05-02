@@ -47,12 +47,7 @@ class MoviesController extends ControllerBase
     public function filterAction()
     {
         $sSql = 'select * from movies';
-        $oResults = $this->db->query($sSql);
-        $result = [];
-        while ($aElement = $oResults->fetch())
-        {
-            $result[] = $aElement;
-        }
+        $result = $this->db->fetchAll($sSql);
         $this->view->movies = $result;
     }
 }

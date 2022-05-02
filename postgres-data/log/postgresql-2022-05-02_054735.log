@@ -331,3 +331,22 @@
 2022-05-02 10:01:11.408 UTC [585] LOG:  statement: DEALLOCATE pdo_stmt_00000001
 2022-05-02 10:01:17.219 UTC [586] LOG:  execute pdo_stmt_00000001: select * from movies
 2022-05-02 10:01:17.219 UTC [586] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:06:02.197 UTC [597] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:06:02.198 UTC [597] LOG:  execute pdo_stmt_00000002: select * from movies
+2022-05-02 10:06:02.198 UTC [597] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:06:02.199 UTC [597] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-05-02 10:06:40.478 UTC [599] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:06:40.479 UTC [599] LOG:  execute pdo_stmt_00000002: select * from movies
+2022-05-02 10:06:40.479 UTC [599] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:06:40.480 UTC [599] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-05-02 10:12:49.691 UTC [28] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-05-02 10:23:39.227 UTC [634] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:23:39.227 UTC [634] LOG:  execute pdo_stmt_00000002: select * from movies
+2022-05-02 10:23:39.228 UTC [634] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:23:39.228 UTC [634] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-05-02 10:23:59.211 UTC [636] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:23:59.212 UTC [636] LOG:  execute pdo_stmt_00000002: select * from movies
+2022-05-02 10:23:59.212 UTC [636] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:23:59.212 UTC [636] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-05-02 10:25:45.174 UTC [640] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:25:45.174 UTC [640] LOG:  statement: DEALLOCATE pdo_stmt_00000001
