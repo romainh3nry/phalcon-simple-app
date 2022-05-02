@@ -2,18 +2,29 @@
 
 use HelloWorld\Models\Movies;
 use HelloWorld\Forms\AddMovieForm;
+use Phalcon\Db\Column;
 
 class MoviesController extends ControllerBase 
 {
     public function indexAction()
     {
-        $sPhSql = "select * from HelloWorld\Models\Movies where title LIKE :search:";
-        $aResults = $this->modelsManager->executeQuery(
-            $sPhSql,
+        $oRequest = $this->modelsManager->createQuery(
+            "select * from HelloWorld\Models\Movies where title LIKE :search:"
+        );
+
+        $oRequest->cache(
             [
-                'search' => '%en%'
+                'key' => 'movies_phsql',
+                'lifetime' => 14400,
             ]
         );
+
+        $aResults = $oRequest->execute(
+            [
+                'search' => '%une%'
+            ]
+        );
+
         $this->view->movies = $aResults;
     }
 
