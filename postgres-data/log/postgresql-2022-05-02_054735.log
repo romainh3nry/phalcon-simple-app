@@ -288,3 +288,46 @@
 2022-05-02 08:51:56.966 UTC [431] LOG:  execute pdo_stmt_00000003: SELECT "movies"."id", "movies"."title", "movies"."year", "movies"."director", "movies"."plot", "movies"."country" FROM "public"."movies" WHERE "movies"."year" = $1 LIMIT $2
 2022-05-02 08:51:56.966 UTC [431] DETAIL:  parameters: $1 = '2021', $2 = '1'
 2022-05-02 08:51:56.972 UTC [431] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-05-02 08:54:59.497 UTC [438] LOG:  execute pdo_stmt_00000001: SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM information_schema.tables WHERE table_schema = 'public' AND table_name='movies'
+2022-05-02 08:54:59.497 UTC [438] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 08:54:59.524 UTC [438] LOG:  execute pdo_stmt_00000002: SELECT DISTINCT c.column_name AS Field, c.data_type AS Type, c.character_maximum_length AS Size, c.numeric_precision AS NumericSize, c.numeric_scale AS NumericScale, c.is_nullable AS Null, CASE WHEN pkc.column_name NOTNULL THEN 'PRI' ELSE '' END AS Key, CASE WHEN c.data_type LIKE '%int%' AND c.column_default LIKE '%nextval%' THEN 'auto_increment' ELSE '' END AS Extra, c.ordinal_position AS Position, c.column_default FROM information_schema.columns c LEFT JOIN ( SELECT kcu.column_name, kcu.table_name, kcu.table_schema FROM information_schema.table_constraints tc INNER JOIN information_schema.key_column_usage kcu on (kcu.constraint_name = tc.constraint_name and kcu.table_name=tc.table_name and kcu.table_schema=tc.table_schema) WHERE tc.constraint_type='PRIMARY KEY') pkc ON (c.column_name=pkc.column_name AND c.table_schema = pkc.table_schema AND c.table_name=pkc.table_name) WHERE c.table_schema='public' AND c.table_name='movies' ORDER BY c.ordinal_position
+2022-05-02 08:54:59.527 UTC [438] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-05-02 08:54:59.530 UTC [438] LOG:  execute pdo_stmt_00000003: SELECT "movies"."id", "movies"."title", "movies"."year", "movies"."director", "movies"."plot", "movies"."country" FROM "public"."movies" WHERE ("movies"."year" = $1) AND ("movies"."title" LIKE $2) LIMIT $3
+2022-05-02 08:54:59.530 UTC [438] DETAIL:  parameters: $1 = '2021', $2 = '%une%', $3 = '1'
+2022-05-02 08:54:59.534 UTC [438] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-05-02 09:07:16.622 UTC [28] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-05-02 09:09:08.571 UTC [467] LOG:  execute pdo_stmt_00000001: SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM information_schema.tables WHERE table_schema = 'public' AND table_name='movies'
+2022-05-02 09:09:08.572 UTC [467] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 09:09:08.595 UTC [467] LOG:  execute pdo_stmt_00000002: SELECT DISTINCT c.column_name AS Field, c.data_type AS Type, c.character_maximum_length AS Size, c.numeric_precision AS NumericSize, c.numeric_scale AS NumericScale, c.is_nullable AS Null, CASE WHEN pkc.column_name NOTNULL THEN 'PRI' ELSE '' END AS Key, CASE WHEN c.data_type LIKE '%int%' AND c.column_default LIKE '%nextval%' THEN 'auto_increment' ELSE '' END AS Extra, c.ordinal_position AS Position, c.column_default FROM information_schema.columns c LEFT JOIN ( SELECT kcu.column_name, kcu.table_name, kcu.table_schema FROM information_schema.table_constraints tc INNER JOIN information_schema.key_column_usage kcu on (kcu.constraint_name = tc.constraint_name and kcu.table_name=tc.table_name and kcu.table_schema=tc.table_schema) WHERE tc.constraint_type='PRIMARY KEY') pkc ON (c.column_name=pkc.column_name AND c.table_schema = pkc.table_schema AND c.table_name=pkc.table_name) WHERE c.table_schema='public' AND c.table_name='movies' ORDER BY c.ordinal_position
+2022-05-02 09:09:08.597 UTC [467] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-05-02 09:09:08.599 UTC [467] LOG:  execute pdo_stmt_00000003: SELECT "movies"."id", "movies"."title", "movies"."year", "movies"."director", "movies"."plot", "movies"."country" FROM "public"."movies" WHERE ("movies"."year" = $1) AND ("movies"."title" LIKE $2) LIMIT $3
+2022-05-02 09:09:08.599 UTC [467] DETAIL:  parameters: $1 = '2021', $2 = '%une%', $3 = '1'
+2022-05-02 09:09:08.604 UTC [467] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-05-02 09:17:16.877 UTC [28] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-05-02 09:35:48.529 UTC [28] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-05-02 09:52:07.950 UTC [554] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:52:08.893 UTC [555] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:52:22.184 UTC [557] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:55:43.051 UTC [564] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:55:43.053 UTC [564] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 09:56:03.614 UTC [566] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:56:03.614 UTC [566] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 09:56:22.925 UTC [568] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:56:22.925 UTC [568] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 09:56:34.399 UTC [569] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:56:34.399 UTC [569] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 09:56:45.685 UTC [570] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:58:52.390 UTC [576] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:58:52.391 UTC [576] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 09:59:23.566 UTC [578] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 09:59:23.567 UTC [578] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:00:47.724 UTC [581] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:00:47.725 UTC [581] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:00:56.250 UTC [583] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:00:56.251 UTC [583] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:01:03.580 UTC [584] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:01:03.581 UTC [584] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:01:11.408 UTC [585] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:01:11.408 UTC [585] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:01:17.219 UTC [586] LOG:  execute pdo_stmt_00000001: select * from movies
+2022-05-02 10:01:17.219 UTC [586] LOG:  statement: DEALLOCATE pdo_stmt_00000001

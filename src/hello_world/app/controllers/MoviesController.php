@@ -15,6 +15,12 @@ class MoviesController extends ControllerBase
                     'year' => 2021
                 ]
             )
+            ->andWhere(
+                'HelloWorld\Models\Movies.title LIKE :search:',
+                [
+                    'search' => '%une%'
+                ]
+            )
             ->limit(1)
             ->getQuery()
             ->execute();
@@ -36,5 +42,17 @@ class MoviesController extends ControllerBase
                 $newMovie->save();
             }
         }
+    }
+
+    public function filterAction()
+    {
+        $sSql = 'select * from movies';
+        $oResults = $this->db->query($sSql);
+        $result = [];
+        while ($aElement = $oResults->fetch())
+        {
+            $result[] = $aElement;
+        }
+        $this->view->movies = $result;
     }
 }

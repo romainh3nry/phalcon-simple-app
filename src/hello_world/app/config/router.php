@@ -67,11 +67,19 @@ $router->add(
     ]
 );
 
-$router-> add(
+$router->add(
     '/movies/add',
     [
         'controller' => 'movies',
         'action' => 'add',
+    ]
+);
+
+$router->add(
+    '/movies/filter',
+    [
+        'controller' => 'movies',
+        'action' => 'filter',
     ]
 );
 
