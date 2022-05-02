@@ -83,4 +83,12 @@ $router->add(
     ]
 );
 
+$router->add(
+    '/movies/update/{id}',
+    [
+        'controller' => 'movies',
+        'action' => 'update',
+    ]
+);
+
 $router->handle();

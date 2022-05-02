@@ -67,4 +67,31 @@ class MoviesController extends ControllerBase
         );
         $this->view->movies = $oResul;
     }
+
+    public function updateAction($id)
+    {
+        $movie = Movies::findFirst(
+            [
+                "id = '{$id}'"
+            ]
+        );
+        $form = new AddMovieForm($movie);
+        if($this->request->isPost())
+        {
+            if ($form->isValid(array_merge($this->request->getPost(), $_FILES))){
+                $title = $this->request->getPost('title');
+                $this->db->update(
+                    'movies',
+                    ['title'],
+                    [$title],
+                    [
+                        'conditions' => 'id = ?',
+                        'bind' => [$id],
+                    ]
+                );
+            }
+        }
+        $this->view->form = $form;
+        $this->view->movie = $movie;
+    }
 }
