@@ -75,10 +75,11 @@ class MoviesController extends ControllerBase
         {
             if ($form->isValid(array_merge($this->request->getPost(), $_FILES))){
                 $title = $this->request->getPost('title');
-                $this->db->update(
+                $this->db->updateAsDict(
                     'movies',
-                    ['title'],
-                    [$title],
+                    [
+                        'title' => $title
+                    ],
                     [
                         'conditions' => 'id = ?',
                         'bind' => [$id],
