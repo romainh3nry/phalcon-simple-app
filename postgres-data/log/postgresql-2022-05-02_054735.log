@@ -350,3 +350,8 @@
 2022-05-02 10:23:59.212 UTC [636] LOG:  statement: DEALLOCATE pdo_stmt_00000002
 2022-05-02 10:25:45.174 UTC [640] LOG:  execute pdo_stmt_00000001: select * from movies
 2022-05-02 10:25:45.174 UTC [640] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 10:31:50.395 UTC [28] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-05-02 10:49:52.560 UTC [691] LOG:  execute pdo_stmt_00000001: select * from movies where year = $1
+2022-05-02 10:49:52.560 UTC [691] DETAIL:  parameters: $1 = '2021'
+2022-05-02 10:50:17.686 UTC [692] LOG:  execute pdo_stmt_00000001: select * from movies where year = $1
+2022-05-02 10:50:17.686 UTC [692] DETAIL:  parameters: $1 = '2021'

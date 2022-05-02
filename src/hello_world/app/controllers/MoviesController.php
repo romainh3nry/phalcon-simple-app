@@ -46,8 +46,17 @@ class MoviesController extends ControllerBase
 
     public function filterAction()
     {
-        $sSql = 'select * from movies';
-        $result = $this->db->fetchAll($sSql);
-        $this->view->movies = $result;
+        $oRequetePrepare = $this->db->prepare(
+            'select * from movies where year = :year'
+        );
+        $oResul = $this->db->executePrepared
+        (
+            $oRequetePrepare,
+            [
+                'year' => 2021
+            ],
+            null
+        );
+        $this->view->movies = $oResul;
     }
 }
