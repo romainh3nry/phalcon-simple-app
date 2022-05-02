@@ -10,7 +10,14 @@ class MoviesController extends ControllerBase
     {
         $aResults = $this->modelsManager->createBuilder()
             ->from('HelloWorld\Models\Movies')
-            ->getQuery()->execute();
+            ->where('HelloWorld\Models\Movies.year = :year:',
+                [
+                    'year' => 2021
+                ]
+            )
+            ->limit(1)
+            ->getQuery()
+            ->execute();
 
         $this->view->movies = $aResults;
     }
