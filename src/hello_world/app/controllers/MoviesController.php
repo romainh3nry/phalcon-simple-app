@@ -10,18 +10,6 @@ class MoviesController extends ControllerBase
     {
         $aResults = $this->modelsManager->createBuilder()
             ->from('HelloWorld\Models\Movies')
-            ->where('HelloWorld\Models\Movies.year = :year:',
-                [
-                    'year' => 2021
-                ]
-            )
-            ->andWhere(
-                'HelloWorld\Models\Movies.title LIKE :search:',
-                [
-                    'search' => '%une%'
-                ]
-            )
-            ->limit(1)
             ->getQuery()
             ->execute();
 
@@ -37,9 +25,29 @@ class MoviesController extends ControllerBase
         {
             if ($form->isValid(array_merge($this->request->getPost(), $_FILES)))
             {
-                $newMovie = new Movies();
-                $form->bind($this->request->getPost(), $newMovie);
-                $newMovie->save();
+                $title = $this->request->getPost('title');
+                $year = $this->request->getPost('year');
+                $director = $this->request->getPost('director');
+                $plot = $this->request->getPost('plot');
+                $country = $this->request->getPost('country');
+
+                $this->db->insert(
+                    'movies',
+                    [
+                        $title,
+                        $year,
+                        $director,
+                        $plot,
+                        $country
+                    ],
+                    [
+                        'title',
+                        'year',
+                        'director',
+                        'plot',
+                        'country'
+                    ]
+                );
             }
         }
     }
