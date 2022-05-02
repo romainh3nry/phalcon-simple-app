@@ -33,21 +33,14 @@ class MoviesController extends ControllerBase
                 $plot = $this->request->getPost('plot');
                 $country = $this->request->getPost('country');
 
-                $this->db->insert(
+                $this->db->insertAsDict(
                     'movies',
                     [
-                        $title,
-                        $year,
-                        $director,
-                        $plot,
-                        $country
-                    ],
-                    [
-                        'title',
-                        'year',
-                        'director',
-                        'plot',
-                        'country'
+                        'title' => $title,
+                        'year' => $year,
+                        'director' => $director,
+                        'plot' => $plot,
+                        'country' => $country
                     ]
                 );
             }

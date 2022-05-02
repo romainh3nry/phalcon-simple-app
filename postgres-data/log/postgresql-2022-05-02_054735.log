@@ -806,3 +806,13 @@
 2022-05-02 11:57:55.824 UTC [904] LOG:  statement: DEALLOCATE pdo_stmt_00000002
 2022-05-02 11:57:55.828 UTC [904] LOG:  execute pdo_stmt_00000003: SELECT "movies"."id", "movies"."title", "movies"."year", "movies"."director", "movies"."plot", "movies"."country" FROM "public"."movies"
 2022-05-02 11:57:55.831 UTC [904] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-05-02 12:00:53.923 UTC [911] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-05-02 12:04:10.832 UTC [918] LOG:  execute pdo_stmt_00000001: INSERT INTO "movies" ("title", "year", "director", "plot", "country") VALUES ($1, $2, $3, $4, $5)
+2022-05-02 12:04:10.832 UTC [918] DETAIL:  parameters: $1 = 'Lalaland', $2 = '2017', $3 = 'Damien Chazelle', $4 = 'Au cœur de Los Angeles, une actrice en devenir prénommée Mia sert des cafés entre deux auditions. ', $5 = 'USA'
+2022-05-02 12:04:10.843 UTC [918] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 12:04:14.762 UTC [919] LOG:  execute pdo_stmt_00000001: SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM information_schema.tables WHERE table_schema = 'public' AND table_name='movies'
+2022-05-02 12:04:14.763 UTC [919] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-02 12:04:14.809 UTC [919] LOG:  execute pdo_stmt_00000002: SELECT DISTINCT c.column_name AS Field, c.data_type AS Type, c.character_maximum_length AS Size, c.numeric_precision AS NumericSize, c.numeric_scale AS NumericScale, c.is_nullable AS Null, CASE WHEN pkc.column_name NOTNULL THEN 'PRI' ELSE '' END AS Key, CASE WHEN c.data_type LIKE '%int%' AND c.column_default LIKE '%nextval%' THEN 'auto_increment' ELSE '' END AS Extra, c.ordinal_position AS Position, c.column_default FROM information_schema.columns c LEFT JOIN ( SELECT kcu.column_name, kcu.table_name, kcu.table_schema FROM information_schema.table_constraints tc INNER JOIN information_schema.key_column_usage kcu on (kcu.constraint_name = tc.constraint_name and kcu.table_name=tc.table_name and kcu.table_schema=tc.table_schema) WHERE tc.constraint_type='PRIMARY KEY') pkc ON (c.column_name=pkc.column_name AND c.table_schema = pkc.table_schema AND c.table_name=pkc.table_name) WHERE c.table_schema='public' AND c.table_name='movies' ORDER BY c.ordinal_position
+2022-05-02 12:04:14.811 UTC [919] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-05-02 12:04:14.814 UTC [919] LOG:  execute pdo_stmt_00000003: SELECT "movies"."id", "movies"."title", "movies"."year", "movies"."director", "movies"."plot", "movies"."country" FROM "public"."movies"
+2022-05-02 12:04:14.820 UTC [919] LOG:  statement: DEALLOCATE pdo_stmt_00000003
