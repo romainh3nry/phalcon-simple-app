@@ -8,22 +8,9 @@ class MoviesController extends ControllerBase
 {
     public function indexAction()
     {
-        $oRequest = $this->modelsManager->createQuery(
-            "select * from HelloWorld\Models\Movies where title LIKE :search:"
-        );
-
-        $oRequest->cache(
-            [
-                'key' => 'movies_phsql',
-                'lifetime' => 14400,
-            ]
-        );
-
-        $aResults = $oRequest->execute(
-            [
-                'search' => '%une%'
-            ]
-        );
+        $aResults = $this->modelsManager->createBuilder()
+            ->from('HelloWorld\Models\Movies')
+            ->getQuery()->execute();
 
         $this->view->movies = $aResults;
     }
