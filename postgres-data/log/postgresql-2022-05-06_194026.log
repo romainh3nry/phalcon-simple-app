@@ -222,3 +222,12 @@
 2022-05-06 23:32:34.531 UTC [272] LOG:  statement: DEALLOCATE pdo_stmt_00000002
 2022-05-06 23:32:34.534 UTC [272] LOG:  execute pdo_stmt_00000003: SELECT "movies"."id", "movies"."title", "movies"."year", "movies"."director", "movies"."plot", "movies"."country" FROM "public"."movies"
 2022-05-06 23:32:34.539 UTC [272] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-05-06 23:36:37.956 UTC [24] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-05-06 23:41:38.024 UTC [24] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-05-06 23:45:00.742 UTC [286] LOG:  execute pdo_stmt_00000001: SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END FROM information_schema.tables WHERE table_schema = 'public' AND table_name='movies'
+2022-05-06 23:45:00.743 UTC [286] LOG:  statement: DEALLOCATE pdo_stmt_00000001
+2022-05-06 23:45:00.769 UTC [286] LOG:  execute pdo_stmt_00000002: SELECT DISTINCT c.column_name AS Field, c.data_type AS Type, c.character_maximum_length AS Size, c.numeric_precision AS NumericSize, c.numeric_scale AS NumericScale, c.is_nullable AS Null, CASE WHEN pkc.column_name NOTNULL THEN 'PRI' ELSE '' END AS Key, CASE WHEN c.data_type LIKE '%int%' AND c.column_default LIKE '%nextval%' THEN 'auto_increment' ELSE '' END AS Extra, c.ordinal_position AS Position, c.column_default FROM information_schema.columns c LEFT JOIN ( SELECT kcu.column_name, kcu.table_name, kcu.table_schema FROM information_schema.table_constraints tc INNER JOIN information_schema.key_column_usage kcu on (kcu.constraint_name = tc.constraint_name and kcu.table_name=tc.table_name and kcu.table_schema=tc.table_schema) WHERE tc.constraint_type='PRIMARY KEY') pkc ON (c.column_name=pkc.column_name AND c.table_schema = pkc.table_schema AND c.table_name=pkc.table_name) WHERE c.table_schema='public' AND c.table_name='movies' ORDER BY c.ordinal_position
+2022-05-06 23:45:00.772 UTC [286] LOG:  statement: DEALLOCATE pdo_stmt_00000002
+2022-05-06 23:45:00.774 UTC [286] LOG:  execute pdo_stmt_00000003: SELECT "movies"."id", "movies"."title", "movies"."year", "movies"."director", "movies"."plot", "movies"."country" FROM "public"."movies"
+2022-05-06 23:45:00.785 UTC [286] LOG:  statement: DEALLOCATE pdo_stmt_00000003
+2022-05-06 23:55:38.768 UTC [24] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted

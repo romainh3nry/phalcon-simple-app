@@ -17,6 +17,7 @@ use Phalcon\Events\Manager as EventsManager;
 use HelloWorld\Plugins\ModelsPlugin;
 use HelloWorld\Plugins\ExceptionPlugin;
 use HelloWorld\Plugins\ViewPlugin;
+use HelloWorld\Plugins\SecurityPlugin;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Events\Event;
 
@@ -200,11 +201,14 @@ $di->setShared('logger', function(){
 
 $di->set('dispatcher', function () {
 
-    $oGestionEvenement = new Phalcon\Events\Manager();
-
-    $oGestionEvenement->attach('dispatch:beforeException', new ExceptionPlugin());
-
     $oDispatcher = new Dispatcher();
+    $oGestionEvenement = new EventsManager();
+
+    $oGestionEvenement->attach(
+        'dispatch',
+        new SecurityPlugin()
+    );
+
     $oDispatcher->setEventsManager($oGestionEvenement);
 
     return $oDispatcher;
