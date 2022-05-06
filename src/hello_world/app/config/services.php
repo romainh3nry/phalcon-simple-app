@@ -18,6 +18,7 @@ use HelloWorld\Plugins\ModelsPlugin;
 use HelloWorld\Plugins\ExceptionPlugin;
 use HelloWorld\Plugins\ViewPlugin;
 use Phalcon\Mvc\Dispatcher;
+use Phalcon\Events\Event;
 
 /**
  * Shared configuration service
@@ -47,8 +48,16 @@ $di->setShared('view', function () {
     $view = new View();
 
     $oGestionEvenement = new EventsManager();
-    $oGestionEvenement->attach('view', new ViewPlugin());
-    $view->setEventsManager($oGestionEvenement);
+    $oLogger = $this->getLogger();
+    $oGestionEvenement->attach(
+        'view:beforeRender',
+        function (Event $oEvent, $oView) use ($oLogger)
+        {
+            $oLogger->debug(
+                'beforeRender/Action : ' . $oView->getActionName()
+            );
+        }
+    );
 
     $view->setDI($this);
     $view->setViewsDir($config->application->viewsDir);
@@ -73,6 +82,8 @@ $di->setShared('view', function () {
 
     ]);
 
+    $view->setEventsManager($oGestionEvenement);
+    
     return $view;
 });
 
