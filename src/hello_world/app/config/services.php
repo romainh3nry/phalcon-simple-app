@@ -16,6 +16,7 @@ use Phalcon\Mvc\Model\Manager as ModelsManager;
 use Phalcon\Events\Manager as EventsManager;
 use HelloWorld\Plugins\ModelsPlugin;
 use HelloWorld\Plugins\ExceptionPlugin;
+use HelloWorld\Plugins\ViewPlugin;
 use Phalcon\Mvc\Dispatcher;
 
 /**
@@ -44,6 +45,11 @@ $di->setShared('view', function () {
     $config = $this->getConfig();
 
     $view = new View();
+
+    $oGestionEvenement = new EventsManager();
+    $oGestionEvenement->attach('view', new ViewPlugin());
+    $view->setEventsManager($oGestionEvenement);
+
     $view->setDI($this);
     $view->setViewsDir($config->application->viewsDir);
 

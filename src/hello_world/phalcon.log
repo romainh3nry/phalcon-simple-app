@@ -21,3 +21,14 @@
 #1 [internal function]: Phalcon\Dispatcher->dispatch()
 #2 /var/www/html/public/index.php(42): Phalcon\Mvc\Application->handle()
 #3 {main}
+[Fri, 06 May 22 22:55:39 +0000][DEBUG] un log de debug
+[Fri, 06 May 22 22:55:42 +0000][ERROR] MovieController handler class cannot be loaded
+#0 [internal function]: Phalcon\Mvc\Dispatcher->_throwDispatchException('MovieController...', 2)
+#1 [internal function]: Phalcon\Dispatcher->dispatch()
+#2 /var/www/html/public/index.php(42): Phalcon\Mvc\Application->handle()
+#3 {main}
+[Fri, 06 May 22 22:55:44 +0000][DEBUG] un log de debug
+[Fri, 06 May 22 23:07:31 +0000][DEBUG] un log de debug
+[Fri, 06 May 22 23:18:00 +0000][DEBUG] Evenement beforeRender - Action demandéindex
+[Fri, 06 May 22 23:18:22 +0000][DEBUG] Evenement beforeRender - Action demandé index
+[Fri, 06 May 22 23:18:24 +0000][DEBUG] Evenement beforeRender - Action demandé add

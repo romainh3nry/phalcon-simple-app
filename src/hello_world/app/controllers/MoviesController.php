@@ -16,7 +16,7 @@ class MoviesController extends ControllerBase
             ->execute();
 
         $this->view->movies = $aResults;
-        $this->logger->debug('un log de debug');
+        # $this->logger->debug('un log de debug');
     }
 
     public function addAction()
