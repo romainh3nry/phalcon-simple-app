@@ -16,6 +16,7 @@ class MoviesController extends ControllerBase
             ->execute();
 
         $this->view->movies = $aResults;
+        $this->logger->error('une première erreur');
     }
 
     public function addAction()

@@ -183,7 +183,7 @@ $di->setShared('modelsManager', function() {
 });
 
 $di->setShared('logger', function(){
-    $oLogger = new \Phalcon\Logger\Adapter\Stream('php://stderr');
+    $oLogger = new \Phalcon\Logger\Adapter\File(BASE_PATH . '/phalcon.log');
     
     return $oLogger;
 });
