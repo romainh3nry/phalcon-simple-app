@@ -181,9 +181,11 @@ $di->setShared('logger', function(){
     return $oLogger;
 });
 
-$di->set('dispatcher', function(){
-    $oGestionEvenement = new \Phalcon\Events\Manager();
-    $oGestionEvenement->attach('dispatch::beforeExeception', new ExceptionPlugin());
+$di->set('dispatcher', function () {
+
+    $oGestionEvenement = new Phalcon\Events\Manager();
+
+    $oGestionEvenement->attach('dispatch:beforeException', new ExceptionPlugin());
 
     $oDispatcher = new Dispatcher();
     $oDispatcher->setEventsManager($oGestionEvenement);
