@@ -15,6 +15,8 @@ use Phalcon\Cache\Backend\Factory as BFactory;
 use Phalcon\Mvc\Model\Manager as ModelsManager;
 use Phalcon\Events\Manager as EventsManager;
 use HelloWorld\Plugins\ModelsPlugin;
+use HelloWorld\Plugins\ExceptionPlugin;
+use Phalcon\Mvc\Dispatcher;
 
 /**
  * Shared configuration service
@@ -173,17 +175,18 @@ $di->set('modelsCache', function() {
     return $oBackCache;
 });
 
-$di->setShared('modelsManager', function() {
-    $oModele = new ModelsManager();
-    $oGestionEvenements = new EventsManager;
-    $oGestionEvenements->attach('model', new ModelsPlugin());
-    $oModele->setEventsManager($oGestionEvenements);
-
-    return $oModele;
-});
-
 $di->setShared('logger', function(){
     $oLogger = new \Phalcon\Logger\Adapter\File(BASE_PATH . '/phalcon.log');
     
     return $oLogger;
+});
+
+$di->set('dispatcher', function(){
+    $oGestionEvenement = new \Phalcon\Events\Manager();
+    $oGestionEvenement->attach('dispatch::beforeExeception', new ExceptionPlugin());
+
+    $oDispatcher = new Dispatcher();
+    $oDispatcher->setEventsManager($oGestionEvenement);
+
+    return $oDispatcher;
 });

@@ -10,6 +10,7 @@ $loader->registerDirs(
         $config->application->controllersDir,
         $config->application->modelsDir,
         $config->application->formsDir,
+        $config->application->pluginsDir,
     ]
 )->register();
 
@@ -18,5 +19,6 @@ $loader->registerNamespaces(
         'HelloWorld\Models' => $config->application->modelsDir,
         'HelloWorld\Plugins' => $config->application->modelsDir,
         'HelloWorld\Forms'  => $config->application->formsDir,
+        'HelloWorld\Plugins'  => $config->application->pluginsDir,
     )
 );
