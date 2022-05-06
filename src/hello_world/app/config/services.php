@@ -181,3 +181,9 @@ $di->setShared('modelsManager', function() {
 
     return $oModele;
 });
+
+$di->setShared('logger', function(){
+    $oLogger = new \Phalcon\Logger\Adapter\File(BASE_PATH . '/phalcon.log');
+    
+    return $oLogger;
+});
