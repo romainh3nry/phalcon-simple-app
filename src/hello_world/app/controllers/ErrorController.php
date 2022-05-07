@@ -13,5 +13,10 @@ class ErrorController extends ControllerBase
     {
 
     }
+
+    public function code401Action()
+    {
+        
+    }
 }
 

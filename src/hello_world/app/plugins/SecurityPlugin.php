@@ -15,69 +15,71 @@ class SecurityPlugin extends Plugin
 {
     public function getAcl()
     {
-        $oAcl = new Memory();
-        $oAcl->setDefaultAction(Acl::DENY);
 
-        $oRoles = [
-            'admin' => new Role(
-                'admin',
-                'Full access au site web'
-            ),
-            'user' => new Role(
-                'user',
-                'Accès au site sauf partie Admin'
-            )
-        ];
-        foreach($aRoles as $oRoles)
+        $oAcl = null;
+
+        if($this->session->has('acl'))
         {
-            $oAcl->addRole($oRoles);
+            $oAcl = unserialize($this->session->get('acl'));
         }
+        else
+        {
+            $oAcl = new Memory();
+            $oAcl->setDefaultAction(Acl::DENY);
+
+            $oRoles = [
+                'admin' => new Role(
+                    'admin',
+                    'Full access au site web'
+                ),
+                'user' => new Role(
+                    'user',
+                    'Accès au site sauf partie Admin'
+                )
+            ];
+            foreach($aRoles as $oRoles)
+            {
+                $oAcl->addRole($oRoles);
+            }
+
+            $this->session->set('acl', serialize($oAcl));
+        }
+        return $oAcl;
+        
     }
 
     public function beforeExecuteRoute(Event $oEvent, Dispatcher $oDispatcher)
     {
         $oUtilisateur = null;
-        if (true === $this->session->has('utilisateur'))
-        {
+        if (true === $this->session->has('utilisateur')) {
             $oUtilisateur = $this->session->get('utilisateur');
         }
 
         $sControleur = $oDispatcher->getControllerName();
-        $sAction = $oDispatcher->getActionName();
+        $sAction     = $oDispatcher->getActionName();
 
-        if (true === is_null($oUtilisateur))
-        {
-            if ($sControleur === 'index' && ($sAction === 'connexion' || $sAction === 'index'))
-            {
+        if (true === is_null($oUtilisateur)) {
+            if ( $sControleur === 'index' && ( $sAction === 'connexion' ||
+                                                    $sAction === 'index' ||
+                                                    $sAction === 'fonctionVerificationAvance' ||
+                                                    $sAction === 'heritageRole') ){
                 return true;
             }
             else {
                 $oDispatcher->forward(
                     [
                         'controller' => 'index',
-                        'action' => 'connexion',
-                        'params' => [
-                            'erreurs' => 'Pour accéder à la page ' . $sControleur.'/'.$sAction.' vous devez être connecté.'
-                        ]
+                        'action'     => 'connexion',
+                        'params'     =>
+                            [
+                                'erreurs' => 'Pour accéder à la page '.$sControleur.'/'.$sAction.' vous devez être connecté.'
+                            ]
                     ]
                 );
                 return false;
             }
         }
-        if ($oUtilisateur instanceof Users)
-        {
-            $this->view->utilisateur_connecte = $oUtilisateur;
-        }
-        else 
-        {
-            $oDispatcher->forward(
-                [
-                    'controller' => 'error',
-                    'action' => 'code401'
-                ]
-            );
-            return false;
-        }
-        return true;
+
+        $this->view->utilisateur_connecte = $oUtilisateur;
     }
 }
