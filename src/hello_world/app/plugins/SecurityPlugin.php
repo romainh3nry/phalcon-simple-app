@@ -4,11 +4,36 @@ namespace HelloWorld\Plugins;
 
 use Phalcon\Mvc\User\Plugin;
 use Phalcon\Events\Event;
+use HelloWorld\Models\Users;
 use Phalcon\Dispatcher;
+use Phalcon\Acl\Adapter\Memory;
+use Phalcon\Acl;
+use Phalcon\Acl\Role;
 
 
 class SecurityPlugin extends Plugin
 {
+    public function getAcl()
+    {
+        $oAcl = new Memory();
+        $oAcl->setDefaultAction(Acl::DENY);
+
+        $oRoles = [
+            'admin' => new Role(
+                'admin',
+                'Full access au site web'
+            ),
+            'user' => new Role(
+                'user',
+                'Accès au site sauf partie Admin'
+            )
+        ];
+        foreach($aRoles as $oRoles)
+        {
+            $oAcl->addRole($oRoles);
+        }
+    }
+
     public function beforeExecuteRoute(Event $oEvent, Dispatcher $oDispatcher)
     {
         $oUtilisateur = null;
@@ -39,9 +64,9 @@ class SecurityPlugin extends Plugin
                 return false;
             }
         }
-        if ($oUtilisateur instanceof Utilisateurs)
+        if ($oUtilisateur instanceof Users)
         {
-            $this->view->utilisateur_connete = $oUtilisateur;
+            $this->view->utilisateur_connecte = $oUtilisateur;
         }
         else 
         {

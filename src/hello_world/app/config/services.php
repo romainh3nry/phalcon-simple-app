@@ -199,6 +199,7 @@ $di->setShared('logger', function(){
     return $oLogger;
 });
 
+
 $di->set('dispatcher', function () {
 
     $oDispatcher = new Dispatcher();
